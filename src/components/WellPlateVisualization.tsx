@@ -1,6 +1,6 @@
 import { memo, useMemo } from "react";
 import type { WellPlate, Well, PipetteOperation } from "../types";
-import { getPlateTypeDisplayName, getPlateDimensions, parseWellAddress } from "../utils/wellPlateUtils";
+import { parseWellAddress } from "../utils/wellPlateUtils";
 
 interface WellPlateVisualizationProps {
   plate: WellPlate;
@@ -80,10 +80,9 @@ export const WellPlateVisualization = memo(
     return (
       <div className={`bg-slate-800 border border-slate-700 rounded-lg ${sizeClasses.container}`}>
         <div className="mb-3">
-          <h3 className="text-lg font-semibold">{plate.name}</h3>
-          <div className="text-sm text-slate-400">
-            {getPlateTypeDisplayName(plate.type)} ({getPlateDimensions(plate.type)})
-          </div>
+          <h3 className="text-lg font-semibold">
+            {plate.type}-Well Plate
+          </h3>
         </div>
 
         <div
@@ -160,7 +159,7 @@ export const WellPlateVisualization = memo(
                     well
                   )} ${sizeClasses.well} flex items-center justify-center overflow-hidden relative`}
                   onClick={() => onWellClick?.(well)}
-                  title={`${well.id}: ${well.volume.toFixed(0)}µL${isSource ? ' (Source)' : isDest ? ' (Destination)' : ''}`}
+                  title={`${well.id}: ${well.volume.toFixed(0)}µL`}
                   style={{ minWidth: 0, minHeight: 0 }}
                 >
                   {isSource && (
@@ -171,12 +170,6 @@ export const WellPlateVisualization = memo(
                   )}
                   {showVolume && well.volume > 0 && (
                     <span className="text-white opacity-70 font-mono truncate relative z-10">{well.volume.toFixed(0)}</span>
-                  )}
-                  {isSource && (
-                    <span className="absolute top-0 right-0 text-[6px] bg-cyan-500 text-white px-1 rounded z-10">OUT</span>
-                  )}
-                  {isDest && (
-                    <span className="absolute top-0 right-0 text-[6px] bg-green-500 text-white px-1 rounded z-10">IN</span>
                   )}
                 </div>
               );

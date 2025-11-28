@@ -19,7 +19,7 @@ export const protocolTemplates: ProtocolTemplate[] = [
   {
     id: "2",
     name: "Multi-Well Transfer (96-well)",
-    description: "Transfer from source plate to destination plate on 96-well format",
+    description: "Transfer on 96-well format",
     steps: [
       { id: "1", source: "A1", destination: "A1", volume: 50, sourcePlateId: "plate-1", destinationPlateId: "plate-2" },
       { id: "2", source: "A2", destination: "A2", volume: 50, sourcePlateId: "plate-1", destinationPlateId: "plate-2" },
@@ -35,11 +35,11 @@ export const protocolTemplates: ProtocolTemplate[] = [
     name: "384-Well Plate Transfer",
     description: "High-throughput transfer on 384-well plate format",
     steps: [
-      { id: "1", source: "A1", destination: "A1", volume: 25, sourcePlateId: "plate-3", destinationPlateId: "plate-3" },
-      { id: "2", source: "A2", destination: "A2", volume: 25, sourcePlateId: "plate-3", destinationPlateId: "plate-3" },
-      { id: "3", source: "A3", destination: "A3", volume: 25, sourcePlateId: "plate-3", destinationPlateId: "plate-3" },
-      { id: "4", source: "A4", destination: "A4", volume: 25, sourcePlateId: "plate-3", destinationPlateId: "plate-3" },
-      { id: "5", source: "A5", destination: "A5", volume: 25, sourcePlateId: "plate-3", destinationPlateId: "plate-3" },
+      { id: "1", source: "A1", destination: "A1", volume: 25, sourcePlateId: "plate-2", destinationPlateId: "plate-2" },
+      { id: "2", source: "A2", destination: "A2", volume: 25, sourcePlateId: "plate-2", destinationPlateId: "plate-2" },
+      { id: "3", source: "A3", destination: "A3", volume: 25, sourcePlateId: "plate-2", destinationPlateId: "plate-2" },
+      { id: "4", source: "A4", destination: "A4", volume: 25, sourcePlateId: "plate-2", destinationPlateId: "plate-2" },
+      { id: "5", source: "A5", destination: "A5", volume: 25, sourcePlateId: "plate-2", destinationPlateId: "plate-2" },
     ],
     estimatedTime: 4,
     createdBy: "Admin",

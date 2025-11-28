@@ -65,18 +65,9 @@ export const RunsView = ({ protocolRuns, operations, onPause, onResume, onCancel
       {/* Well Plate Visualization - Always shown at top */}
       <div className="mb-6 bg-slate-800 border border-slate-700 rounded-lg p-4">
         <div className="mb-3">
-          <h3 className="text-lg font-semibold mb-1">
-            {activeOperation ? "Active Transfer" : "Well Plate Status"}
+          <h3 className="text-lg font-semibold">
+            {displayPlate.type}-Well Plate
           </h3>
-          {activeOperation ? (
-            <p className="text-sm text-slate-400">
-              {activeOperation.source} → {activeOperation.destination} ({activeOperation.volume}µL)
-            </p>
-          ) : (
-            <p className="text-sm text-slate-400">
-              {displayPlate.name} - {displayPlate.type}-well plate
-            </p>
-          )}
         </div>
         <WellPlateVisualization
           plate={displayPlate}
