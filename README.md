@@ -4,6 +4,25 @@ Production-grade monitoring dashboard for liquid handling automation, device con
 
 🔗 **[Live Demo](https://lab-automation-dashboard.vercel.app/)**
 
+## Portfolio Project
+
+This project is a **portfolio demonstration** designed to showcase senior developer capabilities across four critical skill areas:
+
+1. **Architecture Sense** - System design, code organization, scalability
+2. **Design Sense** - UI/UX, visual hierarchy, user experience  
+3. **Language/Technical Sense** - TypeScript mastery, React patterns, best practices
+4. **Information Presentation Sense** - Data visualization, real-time updates, clarity
+
+**Why Lab Automation?** This domain choice reflects real-world experience building similar systems in production environments, demonstrating both technical and domain expertise.
+
+### Documentation
+
+- **[Project Objective](PROJECT_OBJECTIVE.md)** - Portfolio strategy and skill demonstration areas
+- **[Architecture Showcase](ARCHITECTURE_SHOWCASE.md)** - Deep dive into architecture decisions
+- **[Design System](DESIGN_SYSTEM.md)** - Design decisions and UI/UX patterns
+- **[Technical Excellence](TECHNICAL_EXCELLENCE.md)** - TypeScript, React patterns, performance
+- **[Information Architecture](INFORMATION_ARCHITECTURE.md)** - Data visualization and presentation
+
 ## Overview
 
 A comprehensive lab automation dashboard that simulates real-time liquid handling operations, protocol execution, and device monitoring. Built with React 19, TypeScript, and Tailwind CSS v4, showcasing advanced state management patterns and real-time visualization capabilities.

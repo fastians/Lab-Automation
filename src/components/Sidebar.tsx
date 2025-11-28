@@ -10,16 +10,18 @@ interface SidebarProps {
 
 export const Sidebar = ({ currentView, setCurrentView, activeRuns, isAdmin }: SidebarProps) => {
   return (
-    <div className="fixed left-0 top-0 h-full w-64 bg-slate-900 border-r border-slate-800 p-4 overflow-y-auto">
-      <div className="mb-8">
-        <h1 className="text-2xl font-bold flex items-center gap-2">
-          <Activity className="w-6 h-6 text-blue-500" />
+    <div className="fixed left-0 top-0 h-full w-64 bg-slate-900/95 backdrop-blur-xl border-r border-slate-800/50 p-6 overflow-y-auto z-20 shadow-2xl">
+      <div className="mb-8 pb-6 border-b border-slate-800/50">
+        <h1 className="text-2xl font-bold flex items-center gap-2 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/25">
+            <Activity className="w-5 h-5 text-white" />
+          </div>
           Lab Automation
         </h1>
-        <p className="text-xs text-slate-400 mt-1">Dashboard v2.0</p>
+        <p className="text-xs text-slate-400 mt-2 font-medium">Dashboard v2.0</p>
       </div>
 
-      <nav className="space-y-2">
+      <nav className="space-y-1.5">
         <NavButton
           icon={Home}
           label="Dashboard"
@@ -98,14 +100,25 @@ const NavButton = ({ icon: Icon, label, view, currentView, onClick, badge }: Nav
   return (
     <button
       onClick={onClick}
-      className={`w-full flex items-center gap-3 px-4 py-2 rounded-lg transition ${
-        isActive ? "bg-blue-600 text-white" : "text-slate-300 hover:bg-slate-800"
+      className={`group relative w-full flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 ${
+        isActive
+          ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/25"
+          : "text-slate-300 hover:bg-slate-800/50 hover:text-white"
       }`}
     >
-      <Icon className="w-5 h-5" />
-      <span className="flex-1 text-left">{label}</span>
+      <Icon className={`w-5 h-5 transition-transform ${isActive ? "scale-110" : "group-hover:scale-110"}`} />
+      <span className="flex-1 text-left font-medium">{label}</span>
       {badge !== undefined && badge > 0 && (
-        <span className="bg-blue-500 text-white text-xs px-2 py-0.5 rounded-full">{badge}</span>
+        <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${
+          isActive 
+            ? "bg-white/20 text-white" 
+            : "bg-blue-600 text-white shadow-md shadow-blue-500/30"
+        }`}>
+          {badge}
+        </span>
+      )}
+      {isActive && (
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-white rounded-r-full" />
       )}
     </button>
   );

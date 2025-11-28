@@ -32,6 +32,11 @@ export interface Module {
   lastSeen: string;
   operations: number;
   currentOperation: string | null;
+  firmwareVersion?: string;
+  serialNumber?: string;
+  calibrationDate?: string;
+  volumeRange?: { min: number; max: number }; // µL
+  accuracy?: number; // ± percentage
 }
 
 export interface Device {
@@ -43,6 +48,12 @@ export interface Device {
   operations: number;
   currentOperation: string | null;
   modules: Module[]; // Modules connected to this device
+  firmwareVersion?: string;
+  serialNumber?: string;
+  model?: string;
+  uptime?: number; // seconds
+  lastCalibration?: string;
+  location?: string;
 }
 
 export interface ProtocolStep {

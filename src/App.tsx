@@ -72,6 +72,7 @@ function AppContent() {
             devices={devices}
             protocolRuns={protocolRuns}
             operations={operations}
+            sensors={sensors}
           />
         );
       case "devices":
@@ -88,6 +89,7 @@ function AppContent() {
           <ProtocolsView
             templates={protocolTemplates}
             devices={devices}
+            protocolRuns={protocolRuns}
             onStartRun={startProtocolRun}
             isAdmin={isAdmin}
             onNavigate={setCurrentView}
@@ -142,7 +144,11 @@ function AppContent() {
   const activeRunsCount = useMemo(() => activeRuns.length, [activeRuns]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 via-slate-950 to-slate-950 text-white relative overflow-hidden">
+      {/* Animated background gradient */}
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.1),transparent_50%)] pointer-events-none" />
+      
       <ErrorBoundary>
         <Sidebar
           currentView={currentView}
@@ -150,7 +156,7 @@ function AppContent() {
           activeRuns={activeRunsCount}
           isAdmin={isAdmin}
         />
-        <div className="ml-64 p-6">{renderView()}</div>
+        <div className="ml-64 p-6 relative z-10">{renderView()}</div>
       </ErrorBoundary>
     </div>
   );
